@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phones-deployment
+spec:
+  selector:
+    matchLabels:
+      app: phones
+  replicas: 2 
+  template:
+    metadata:
+      labels:
+        app: phones
+    spec:
+      containers:
+      - name: phones
+        image: alexchub/golang-app:latest
+        ports:
+        - containerPort: 8000
